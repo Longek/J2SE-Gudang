@@ -298,7 +298,7 @@ public class FormBarang extends javax.swing.JFrame {
 
         jLabel26.setText("Harga Jual");
 
-        jLabel28.setText("Bjhnanyak        :");
+        jLabel28.setText("tcf");
 
         jButton11.setText("Simpan");
 
