@@ -311,7 +311,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel28">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Banyak        :"/>
+                        <Property name="text" type="java.lang.String" value="Bjhnanyak        :"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparator3">
