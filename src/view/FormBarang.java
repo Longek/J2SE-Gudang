@@ -288,7 +288,7 @@ public class FormBarang extends javax.swing.JFrame {
 
         jLabel12.setText("Kode");
 
-        jLabel15.setText("Nama");
+        jLabel15.setText("iyo");
 
         jLabel16.setText("Tipe");
 
