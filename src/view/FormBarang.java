@@ -111,6 +111,62 @@ public class FormBarang extends javax.swing.JFrame {
         this.jButton7 = jButton7;
     }
 
+    public JTextField getjTextField15() {
+        return jTextField15;
+    }
+
+    public void setjTextField15(JTextField jTextField15) {
+        this.jTextField15 = jTextField15;
+    }
+
+    public JTextField getjTextField16() {
+        return jTextField16;
+    }
+
+    public void setjTextField16(JTextField jTextField16) {
+        this.jTextField16 = jTextField16;
+    }
+
+    public JTextField getjTextField17() {
+        return jTextField17;
+    }
+
+    public void setjTextField17(JTextField jTextField17) {
+        this.jTextField17 = jTextField17;
+    }
+
+    public JTextField getjTextField18() {
+        return jTextField18;
+    }
+
+    public void setjTextField18(JTextField jTextField18) {
+        this.jTextField18 = jTextField18;
+    }
+
+    public JComboBox<String> getjComboBox3() {
+        return jComboBox3;
+    }
+
+    public void setjComboBox3(JComboBox<String> jComboBox3) {
+        this.jComboBox3 = jComboBox3;
+    }
+
+    public JComboBox<String> getjComboBox4() {
+        return jComboBox4;
+    }
+
+    public void setjComboBox4(JComboBox<String> jComboBox4) {
+        this.jComboBox4 = jComboBox4;
+    }
+
+    public JTextField getjTextField13() {
+        return jTextField13;
+    }
+
+    public JButton getjButton15() {
+        return jButton15;
+    }
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -255,14 +311,11 @@ public class FormBarang extends javax.swing.JFrame {
         panekKiri.setLayout(panekKiriLayout);
         panekKiriLayout.setHorizontalGroup(
             panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panekKiriLayout.createSequentialGroup()
-                .addGroup(panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bhome, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btbhdata, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bunboxnig, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0))
+            .addComponent(bhome, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btbhdata, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bunboxnig, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panekKiriLayout.setVerticalGroup(
             panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -709,6 +762,11 @@ public class FormBarang extends javax.swing.JFrame {
         jLabel14.setText("Kode");
 
         jButton12.setText("cek");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jLabel19.setText("Banyak");
 
@@ -731,6 +789,11 @@ public class FormBarang extends javax.swing.JFrame {
         jLabel24.setText("Nama");
 
         jButton15.setText("Simpan");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1012,7 +1075,7 @@ public class FormBarang extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         try {
-            controller.cekBarang(kodebarangbesar.getText());
+            controller.cekBarangkotak(kodebarangbesar.getText());
         } catch (SQLException ex) {
             Logger.getLogger(FormBarang.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1029,7 +1092,7 @@ public class FormBarang extends javax.swing.JFrame {
     private void kodebarangbesarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kodebarangbesarKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             try {
-                controller.cekBarang(kodebarangbesar.getText());
+                controller.cekBarangkotak(kodebarangbesar.getText());
             } catch (SQLException ex) {
 
             }
@@ -1064,6 +1127,18 @@ public class FormBarang extends javax.swing.JFrame {
     private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
         validasi();
     }//GEN-LAST:event_jTextField7KeyReleased
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+       try {
+            controller.cekBarangkecil(jTextField13.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(FormBarang.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        controller.inupdate();
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1216,7 +1291,16 @@ public class FormBarang extends javax.swing.JFrame {
         jTextField6.setText("");
         jTextField7.setText("");
         
+        jTextField13.setText("");
+        jComboBox3.setSelectedItem("");
+        jComboBox4.setSelectedItem("");
+        jTextField15.setText("");
+        jTextField16.setText("");
+        jTextField17.setText("");
+        jTextField18.setText("");
+        
         enableComponen(false);
+        enableComponendatakecil(false);
         jButton7.setEnabled(false);
         
     }
@@ -1231,6 +1315,15 @@ public class FormBarang extends javax.swing.JFrame {
         jTextField7.setEditable(inup);
         jButton8.setEnabled(inup);
         jButton9.setEnabled(inup);
+    }
+     public void enableComponendatakecil(boolean inup){
+        jComboBox3.setEnabled(inup);
+        jComboBox4.setEnabled(inup);
+        jTextField18.setEditable(inup);
+        jTextField17.setEditable(inup);
+        jTextField16.setEditable(inup);
+        jTextField15.setEditable(inup);
+        jButton15.setEnabled(inup);
     }
     
     private void staring(){

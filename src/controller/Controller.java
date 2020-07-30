@@ -39,7 +39,7 @@ public class Controller {
         view.getjTable1().setModel(barangDao.searchByAllToTable(word));
     }
     
-    public void cekBarang(String kode) throws SQLException{
+    public void cekBarangkotak(String kode) throws SQLException{
         
             if (barangDao.isAvailable(kode)) {
             x = 1;
@@ -65,6 +65,31 @@ public class Controller {
             view.getjTextField3().requestFocus();
         }
     }
+     public void cekBarangkecil(String kode) throws SQLException{
+        
+            if (barangDao.isAvailable(kode)) {
+            x = 3;
+            JOptionPane.showMessageDialog(view, x);
+            barang = barangDao.getbarang(kode);
+            view.getjTextField18().setText(barang.getNama());
+            view.getjComboBox4().setSelectedItem(barang.getTipe());
+            view.getjComboBox3().setSelectedItem(barang.getSatuan());
+            view.getjTextField17().setText(""+barang.getHrg_modal());
+            view.getjTextField16().setText(""+barang.getHrg_jual());
+            
+            view.enableComponendatakecil(false);
+            view.getjButton15().setEnabled(true);
+            view.getjTextField15().setEditable(true);
+            view.getjTextField15().requestFocus();
+        } else {
+            x = 4;
+            JOptionPane.showMessageDialog(view, x);
+            JOptionPane.showMessageDialog(view, "Data belum ada di database.\nSilahkan lengkapi data");
+            view.enableComponendatakecil(true);
+            view.getjButton15().setEnabled(true);
+            view.getjTextField3().requestFocus();
+        }
+    }
     
     public void inupdate(){
         barang = new Barang();
@@ -77,7 +102,7 @@ public class Controller {
         barang.setHrg_jual(Double.parseDouble(view.getjTextField5().getText()));
         barang.setStok(Integer.parseInt(view.getjTextField6().getText()));
         barang.setIsi(Integer.parseInt(view.getjTextField7().getText()));
-        barang.setId_pecah("NULL");
+        barang.setId_pecah(null);
         try {
             barangDao.insert(barang);
              JOptionPane.showMessageDialog(null, "Entry OK"); 
@@ -91,6 +116,40 @@ public class Controller {
         else if(x==1){
             barang.setId(view.getKodebarangbesar().getText());
             barang.setStok(Integer.parseInt(view.getjTextField6().getText()));
+            try {
+                barangDao.tambahbarang(barang);
+                JOptionPane.showMessageDialog(null, "Entry OK"); 
+                x=0;
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Error "+ex);
+                x=0;
+
+            }
+        }
+        else if(x==4){
+        barang.setId(view.getjTextField13().getText());
+        barang.setNama(view.getjTextField18().getText());
+        barang.setTipe(view.getjComboBox4().getSelectedItem().toString());
+        barang.setSatuan(view.getjComboBox3().getSelectedItem().toString());
+        barang.setHrg_modal(Double.parseDouble(view.getjTextField17().getText()));
+        barang.setHrg_jual(Double.parseDouble(view.getjTextField16().getText()));
+        barang.setStok(Integer.parseInt(view.getjTextField15().getText()));
+        barang.setIsi(Integer.parseInt("1"));
+        barang.setId_pecah(null);
+        try {
+            barangDao.insert(barang);
+             JOptionPane.showMessageDialog(null, "Entry OK"); 
+             x = 0;
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, "Error "+ex); 
+             x=0;
+        }
+        }
+        else if(x==3){
+            barang.setId(view.getjTextField13().getText());
+            barang.setStok(Integer.parseInt(view.getjTextField15().getText()));
             try {
                 barangDao.tambahbarang(barang);
                 JOptionPane.showMessageDialog(null, "Entry OK"); 
