@@ -8,6 +8,8 @@ package controller;
 import dao.BarangDao;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -33,15 +35,35 @@ public class Controller {
         k = new Koneksi();
         con = k.getConnection();
         view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
+        view.getjTable2().setModel(barangDao.tabeldatamasuk());
     }
     
     public void searchOnBarang(String word) {
         view.getjTable1().setModel(barangDao.searchByAllToTable(word));
     }
+    public void dataketable(){
+         List list = new ArrayList<>();
+            view.getjTable2().setAutoCreateColumnsFromModel(true);
+            if(x==1){
+                list.add("Tambah Stok");
+            }
+            else if(x==2){
+                list.add("Barang Baru");
+            }
+            list.add(view.getKodebarangbesar().getText());
+            list.add(view.getjTextField3().getText());
+            list.add(view.getjComboBox1().getSelectedItem().toString());
+            list.add(view.getjComboBox2().getSelectedItem().toString());
+            list.add(view.getjTextField4().getText());
+            list.add(view.getjTextField5().getText());
+            list.add(view.getjTextField6().getText());
+            barangDao.tabeldatamasuk().addRow(list.toArray());
+    }
     
     public void cekBarangkotak(String kode) throws SQLException{
         
             if (barangDao.isAvailable(kode)) {
+                if(barangDao.cekisi(kode)>1){
             x = 1;
             JOptionPane.showMessageDialog(view, x);
             barang = barangDao.getbarang(kode);
@@ -56,6 +78,10 @@ public class Controller {
             view.getjButton7().setEnabled(true);
             view.getjTextField6().setEditable(true);
             view.getjTextField6().requestFocus();
+                }
+                else{
+                    JOptionPane.showMessageDialog(view, "Ini Data Barang Kecil");
+                }
         } else {
             x = 2;
             JOptionPane.showMessageDialog(view, x);
@@ -68,6 +94,7 @@ public class Controller {
      public void cekBarangkecil(String kode) throws SQLException{
         
             if (barangDao.isAvailable(kode)) {
+                if(barangDao.cekisi(kode)<=1){
             x = 3;
             JOptionPane.showMessageDialog(view, x);
             barang = barangDao.getbarang(kode);
@@ -81,6 +108,10 @@ public class Controller {
             view.getjButton15().setEnabled(true);
             view.getjTextField15().setEditable(true);
             view.getjTextField15().requestFocus();
+                }
+                else{
+                    JOptionPane.showMessageDialog(view, "Ini Data Barang Besar");
+                }
         } else {
             x = 4;
             JOptionPane.showMessageDialog(view, x);
@@ -102,7 +133,7 @@ public class Controller {
         barang.setHrg_jual(Double.parseDouble(view.getjTextField5().getText()));
         barang.setStok(Integer.parseInt(view.getjTextField6().getText()));
         barang.setIsi(Integer.parseInt(view.getjTextField7().getText()));
-        barang.setId_pecah(null);
+        barang.setId_pecah("NULL");
         try {
             barangDao.insert(barang);
              JOptionPane.showMessageDialog(null, "Entry OK"); 
@@ -136,7 +167,7 @@ public class Controller {
         barang.setHrg_jual(Double.parseDouble(view.getjTextField16().getText()));
         barang.setStok(Integer.parseInt(view.getjTextField15().getText()));
         barang.setIsi(Integer.parseInt("1"));
-        barang.setId_pecah(null);
+        barang.setId_pecah("NULL");
         try {
             barangDao.insert(barang);
              JOptionPane.showMessageDialog(null, "Entry OK"); 
