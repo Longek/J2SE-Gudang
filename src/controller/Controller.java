@@ -62,12 +62,12 @@ public class Controller {
             list.add(view.getjTextField7().getText());
             dataModel.addRow(list.toArray());
     }
-    public void hapustable(){
-        DefaultTableModel dataModel = (DefaultTableModel) tabelData.getModel(); 
-            if (dataModel.getRowCount() > 0) {
-                for (int i = tabelData.getRowCount() - 1; i > -1; i--) {
-                    dataModel.removeRow(i);
-    }
+//    public void hapustable(){
+//        DefaultTableModel dataModel = (DefaultTableModel) tabelData.getModel(); 
+//            if (tabelData.getRowCount() > 0) {
+//                for (int i = tabelData.getRowCount() - 1; i > -1; i--) {
+//                    dataModel.removeRow(i);
+//    }
     
     public void cekBarangkotak(String kode) throws SQLException{
         
