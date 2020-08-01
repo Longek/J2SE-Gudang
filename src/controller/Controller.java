@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Barang;
 import resource.Koneksi;
 import view.FormBarang;
@@ -35,20 +36,21 @@ public class Controller {
         k = new Koneksi();
         con = k.getConnection();
         view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
-        view.getjTable2().setModel(barangDao.tabeldatamasuk());
     }
     
     public void searchOnBarang(String word) {
         view.getjTable1().setModel(barangDao.searchByAllToTable(word));
     }
     public void dataketable(){
-         List list = new ArrayList<>();
+         DefaultTableModel dataModel = (DefaultTableModel) view.getjTable2().getModel();
+            List list = new ArrayList<>();
             view.getjTable2().setAutoCreateColumnsFromModel(true);
+            String trans ="";
             if(x==1){
-                list.add("Tambah Stok");
+                list.add("Tambah Data");
             }
             else if(x==2){
-                list.add("Barang Baru");
+               list.add("Tambah Data");
             }
             list.add(view.getKodebarangbesar().getText());
             list.add(view.getjTextField3().getText());
@@ -57,7 +59,14 @@ public class Controller {
             list.add(view.getjTextField4().getText());
             list.add(view.getjTextField5().getText());
             list.add(view.getjTextField6().getText());
-            barangDao.tabeldatamasuk().addRow(list.toArray());
+            list.add(view.getjTextField7().getText());
+            dataModel.addRow(list.toArray());
+    }
+    public void hapustable(){
+        DefaultTableModel dataModel = (DefaultTableModel) tabelData.getModel(); 
+            if (dataModel.getRowCount() > 0) {
+                for (int i = tabelData.getRowCount() - 1; i > -1; i--) {
+                    dataModel.removeRow(i);
     }
     
     public void cekBarangkotak(String kode) throws SQLException{
@@ -133,7 +142,7 @@ public class Controller {
         barang.setHrg_jual(Double.parseDouble(view.getjTextField5().getText()));
         barang.setStok(Integer.parseInt(view.getjTextField6().getText()));
         barang.setIsi(Integer.parseInt(view.getjTextField7().getText()));
-        barang.setId_pecah("NULL");
+        barang.setId_pecah(null);
         try {
             barangDao.insert(barang);
              JOptionPane.showMessageDialog(null, "Entry OK"); 
@@ -167,7 +176,7 @@ public class Controller {
         barang.setHrg_jual(Double.parseDouble(view.getjTextField16().getText()));
         barang.setStok(Integer.parseInt(view.getjTextField15().getText()));
         barang.setIsi(Integer.parseInt("1"));
-        barang.setId_pecah("NULL");
+        barang.setId_pecah(null);
         try {
             barangDao.insert(barang);
              JOptionPane.showMessageDialog(null, "Entry OK"); 
