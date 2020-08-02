@@ -74,7 +74,6 @@ public class Controller {
             if (barangDao.isAvailable(kode)) {
                 if(barangDao.cekisi(kode)>1){
             x = 1;
-            JOptionPane.showMessageDialog(view, x);
             barang = barangDao.getbarang(kode);
             view.getjTextField3().setText(barang.getNama());
             view.getjComboBox1().setSelectedItem(barang.getTipe());
@@ -105,7 +104,6 @@ public class Controller {
             if (barangDao.isAvailable(kode)) {
                 if(barangDao.cekisi(kode)<=1){
             x = 3;
-            JOptionPane.showMessageDialog(view, x);
             barang = barangDao.getbarang(kode);
             view.getjTextField18().setText(barang.getNama());
             view.getjComboBox4().setSelectedItem(barang.getTipe());
@@ -202,5 +200,77 @@ public class Controller {
             }
         }
 
+    }
+    
+    public void cekbukakotak(String kode) throws SQLException{
+        if(barangDao.isAvailable(kode)){
+             barang = barangDao.getbarang(kode);
+            view.getjTextField21().setText(barang.getNama());
+            view.getjLabel31().setText(""+barang.getIsi());
+            view.getjLabel40().setText(barang.getTipe());
+        }else{
+            
+        }
+    }
+    public void cekpecahan(String kode) throws SQLException{
+        if(barangDao.isAvailablepecah(kode)){
+            x=6;
+            barang = barangDao.getbarang(kode);
+            view.getjTextField8().setText(barang.getId_pecah());
+            view.getjTextField9().setText(barang.getNama());
+        }else{
+            x=7;
+            JOptionPane.showMessageDialog(view, "Data Pecahan Belom Ada \n Silahkan Di Lengkapi");
+        }
+    }
+    public int isibuka(int banyak) throws SQLException{
+        int isibanyak =0;
+        isibanyak = banyak * (barangDao.cekisi(view.getjTextField20().getText()));
+        return isibanyak;
+    }
+    public void datapecah() {
+        barang = new Barang();
+        if(x==6){
+            barang.setId(view.getjTextField8().getText());
+            barang.setStok(Integer.parseInt(view.getjLabel33().getText()));
+            try {
+                barangDao.tambahbarang(barang);
+                x=0;
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                x=0;
+
+            }
+        }
+        else if(x==7){
+            barang.setId(view.getjTextField8().getText());
+            barang.setNama(view.getjTextField9().getText());
+            barang.setTipe(view.getjLabel40().getText());
+            barang.setSatuan(view.getjComboBox6().getSelectedItem().toString());
+            barang.setHrg_modal(Double.parseDouble(view.getjTextField10().getText()));
+            barang.setHrg_jual(Double.parseDouble(view.getjTextField11().getText()));
+            barang.setStok(Integer.parseInt(view.getjLabel33().getText()));
+            barang.setId_pecah(null);
+            try {
+                barangDao.inputpecah(barang);
+                x=0;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+                x=0;           
+            }
+        }
+    }
+    public void updateidpecahan(){
+        if(x==7){
+        barang = new Barang();
+        barang.setId_pecah(view.getjTextField8().getText());
+        barang.setId(view.getjTextField20().getText());
+        try {
+            barangDao.updateidpecah(barang);
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
     }
 }
