@@ -1966,6 +1966,8 @@ public class FormBarang extends javax.swing.JFrame {
         jTextField16.setText("");
         jTextField17.setText("");
         jTextField18.setText("");
+        
+        
     }
     
     
