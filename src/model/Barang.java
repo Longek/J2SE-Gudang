@@ -15,6 +15,15 @@ public class Barang {
     private int stok;
     private int isi;
     private String id_pecah;
+    private String kodelama;
+
+    public String getKodelama() {
+        return kodelama;
+    }
+
+    public void setKodelama(String kodelama) {
+        this.kodelama = kodelama;
+    }
 
     public String getId() {
         return id;

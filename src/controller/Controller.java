@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import model.Barang;
 import resource.Koneksi;
 import view.FormBarang;
+import view.UpdateTable;
 
 /**
  *
@@ -24,6 +25,7 @@ import view.FormBarang;
  */
 public class Controller {
     FormBarang view;
+    UpdateTable view2;
     Barang barang;
     BarangDao barangDao;
     Koneksi k;
@@ -36,6 +38,12 @@ public class Controller {
         k = new Koneksi();
         con = k.getConnection();
         view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
+    }
+    public Controller(UpdateTable view2){
+        this.view2 = view2;
+        barangDao = new BarangDao();
+        k = new Koneksi();
+        con = k.getConnection();
     }
     
     public void searchOnBarang(String word) {
@@ -250,6 +258,7 @@ public class Controller {
             barang.setStok(Integer.parseInt(view.getjLabel33().getText()));
             try {
                 barangDao.tambahbarang(barang);
+                barangDao.updatestok(barang);
                  view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
                 x=0;
             } catch (SQLException ex) {
@@ -288,6 +297,38 @@ public class Controller {
             barangDao.updateidpecah(barang);
              view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
              
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void update(){
+        barang = new Barang();
+        barang.setNama(view2.getjTextField3().getText());
+        barang.setTipe(view2.getjComboBox1().getSelectedItem().toString());
+        barang.setSatuan(view2.getjComboBox2().getSelectedItem().toString());
+        barang.setHrg_modal(Double.parseDouble(view2.getjTextField4().getText()));
+        barang.setHrg_jual(Double.parseDouble(view2.getjTextField5().getText()));
+        barang.setStok(Integer.parseInt(view2.getjTextField6().getText()));
+        barang.setIsi(Integer.parseInt(view2.getjTextField7().getText()));
+        barang.setId(view2.getKodebarangbesar().getText());
+        barang.setKodelama(view2.kodelama);
+        try {
+            barangDao.update(barang);
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void updatetable(){
+        view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
+    }
+    public void delete(){
+        barang = new Barang();
+        barang.setId(view.getjLabel43().getText());
+        try {
+            barangDao.delete(barang);
+            JOptionPane.showMessageDialog(view, "Berhasil Terhapus");
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }

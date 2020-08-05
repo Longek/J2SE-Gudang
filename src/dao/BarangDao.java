@@ -45,7 +45,7 @@ public class BarangDao {
     
     public void update(Barang barang) throws SQLException{
         String sql="update barang set nama_barang=?, tipe_barang=?, satuan=?, "
-                + "harga_modal=?, harga_jual=?, stok=?, isi=?, id_pecah=? where id_barang=?";
+                + "harga_modal=?, harga_jual=?, stok=?, isi=?, id_pecah=?, id_barang =? where id_barang=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, barang.getNama());
         ps.setString(2, barang.getTipe());
@@ -56,6 +56,7 @@ public class BarangDao {
         ps.setInt(7, barang.getIsi());
         ps.setString(8, barang.getId_pecah());
         ps.setString(9, barang.getId());
+        ps.setString(10, barang.getKodelama());
         ps.executeUpdate(); 
     }
     
@@ -166,13 +167,7 @@ public class BarangDao {
          return isi;
      }
      
-     public void kurangstok(Barang barang) throws SQLException{
-         String sql = "update barang set stok = ? where id_barang =?";
-         PreparedStatement ps = con.prepareStatement(sql);
-         ps.setInt(1, barang.getStok());
-         ps.setString(2, barang.getId());
-         ps.executeUpdate();
-     }
+  
      public void inputpecah(Barang barang) throws SQLException{
          String sql = "insert into barang values(?,?,?,?,?,?,?,?,?)";
          PreparedStatement ps = con.prepareStatement(sql);
@@ -198,6 +193,13 @@ public class BarangDao {
      public void insertrekam(Barang barang)throws SQLException{
          String sql = "insert into rekap_masuk values(?,now(),?,?)"
                  ;
+     }
+     public void updatestok(Barang barang) throws SQLException{
+         String sql = "call kurangstok(?,?)";
+         PreparedStatement ps = con.prepareStatement(sql);
+         ps.setString(1, barang.getId());
+         ps.setInt(2, barang.getStok());
+         ps.executeUpdate();
      }
      
      
