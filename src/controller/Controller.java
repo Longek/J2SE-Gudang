@@ -258,7 +258,6 @@ public class Controller {
             barang.setStok(Integer.parseInt(view.getjLabel33().getText()));
             try {
                 barangDao.tambahbarang(barang);
-                barangDao.updatestok(barang);
                  view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
                 x=0;
             } catch (SQLException ex) {
@@ -275,7 +274,7 @@ public class Controller {
             barang.setHrg_modal(Double.parseDouble(view.getjTextField10().getText()));
             barang.setHrg_jual(Double.parseDouble(view.getjTextField11().getText()));
             barang.setStok(Integer.parseInt(view.getjLabel33().getText()));
-            barang.setIsi(1);
+            barang.setIsi(Integer.parseInt(view.getjLabel18().getText()));
             barang.setId_pecah(null);
             try {
                 barangDao.inputpecah(barang);
@@ -329,6 +328,19 @@ public class Controller {
         try {
             barangDao.delete(barang);
             JOptionPane.showMessageDialog(view, "Berhasil Terhapus");
+            view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void kurangstokk(){
+        barang = new Barang();
+        barang.setId(view.getjTextField20().getText());
+        barang.setStok(Integer.parseInt(view.getjTextField22().getText()));
+        try {
+            barangDao.kurangstok(barang);
+            view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
+
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }

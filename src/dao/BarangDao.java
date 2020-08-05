@@ -194,7 +194,7 @@ public class BarangDao {
          String sql = "insert into rekap_masuk values(?,now(),?,?)"
                  ;
      }
-     public void updatestok(Barang barang) throws SQLException{
+     public void kurangstok(Barang barang) throws SQLException{
          String sql = "call kurangstok(?,?)";
          PreparedStatement ps = con.prepareStatement(sql);
          ps.setString(1, barang.getId());
