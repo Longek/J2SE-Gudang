@@ -116,9 +116,25 @@ public class BarangDao {
             return false;
         }
     }
+    public String isAvailablepecah(String kode)throws SQLException{
+       
+            String sql = "SELECT id_pecah FROM barang WHERE id_barang='"+kode+"'";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            String id = "";
+            if (rs.next()) {
+                id= rs.getString(1);
+                
+            }
+            else{
+                id= "";
+            }
+            return id;
+        
+    }
     
     public Barang getbarang (String kode) throws SQLException{
-        String sql ="select nama_barang,tipe_barang,satuan,harga_modal,harga_jual,isi from barang where id_barang=?";
+        String sql ="select nama_barang,tipe_barang,satuan,harga_modal,harga_jual,stok,isi from barang where id_barang=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, kode);
         ResultSet rs = ps.executeQuery();
@@ -130,8 +146,59 @@ public class BarangDao {
             b.setSatuan(rs.getString(3));
             b.setHrg_modal(rs.getDouble(4));
             b.setHrg_jual(rs.getDouble(5));
-            b.setIsi(rs.getInt(6));
+            b.setStok(rs.getInt(6));
+            b.setIsi(rs.getInt(7));
         }
         return b;
     }
+     public int cekisi(String kode) throws SQLException{
+         String sql = "select isi from barang where id_barang=?";
+         PreparedStatement ps = con.prepareStatement(sql);
+         ps.setString(1, kode);
+         ResultSet rs = ps.executeQuery();
+         int isi = 0;
+         if(rs.next()){
+             isi = rs.getInt(1);
+         }
+         else{
+             isi =0;
+         }
+         return isi;
+     }
+     
+     public void kurangstok(Barang barang) throws SQLException{
+         String sql = "update barang set stok = ? where id_barang =?";
+         PreparedStatement ps = con.prepareStatement(sql);
+         ps.setInt(1, barang.getStok());
+         ps.setString(2, barang.getId());
+         ps.executeUpdate();
+     }
+     public void inputpecah(Barang barang) throws SQLException{
+         String sql = "insert into barang values(?,?,?,?,?,?,?,?,?)";
+         PreparedStatement ps = con.prepareStatement(sql);
+         ps.setString(1, barang.getId());
+         ps.setString(2, barang.getNama());
+         ps.setString(3, barang.getTipe());
+         ps.setString(4, barang.getSatuan());
+         ps.setDouble(5, barang.getHrg_modal());
+         ps.setDouble(6, barang.getHrg_jual());
+         ps.setInt(7, barang.getStok());
+         ps.setInt(8, barang.getIsi());
+         ps.setString(9, barang.getId_pecah());
+         ps.executeUpdate();
+     }
+     public void updateidpecah(Barang barang) throws SQLException{
+         String sql = "update barang set id_pecah = ? where id_barang = ?";
+         PreparedStatement ps = con.prepareStatement(sql);
+         ps.setString(1, barang.getId_pecah());
+         ps.setString(2, barang.getId());
+         ps.executeUpdate();
+     }
+     
+     public void insertrekam(Barang barang)throws SQLException{
+         String sql = "insert into rekap_masuk values(?,now(),?,?)"
+                 ;
+     }
+     
+     
 }
