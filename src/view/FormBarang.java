@@ -1,8 +1,10 @@
 package view;
 
 import controller.Controller;
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.event.KeyEvent;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +17,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.jdbc.JDBCCategoryDataset;
+import resource.Koneksi;
 
 /**
  *
@@ -25,6 +33,7 @@ public class FormBarang extends javax.swing.JFrame {
     /**
      * Creates new form FormBarang
      */
+    Connection con;
     Controller controller;
     CardLayout cardLayout;
     UpdateTable updateTable;
@@ -370,6 +379,9 @@ public class FormBarang extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
+        cardLaporan = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jButton16 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(33, 152, 92));
@@ -418,13 +430,16 @@ public class FormBarang extends javax.swing.JFrame {
 
         bexit.setBackground(new java.awt.Color(33, 152, 92));
         bexit.setText("Laporan");
+        bexit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bexitActionPerformed(evt);
+            }
+        });
         panekKiri.add(bexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 200, 45));
 
         jPanel5.setBackground(new java.awt.Color(48, 204, 126));
 
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel38.setIcon(new javax.swing.ImageIcon("E:\\Gudang\\src\\resource\\gudang.png")); // NOI18N
 
         jLabel37.setFont(new java.awt.Font("Gill Sans MT", 1, 13)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
@@ -1173,7 +1188,7 @@ public class FormBarang extends javax.swing.JFrame {
                 .addGroup(kosongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(565, Short.MAX_VALUE))
+                .addContainerGap(573, Short.MAX_VALUE))
         );
 
         panelKanan.add(kosong, "card3");
@@ -1215,7 +1230,6 @@ public class FormBarang extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(51, 255, 51));
-        jButton2.setIcon(new javax.swing.ImageIcon("E:\\Gudang\\edit.png")); // NOI18N
         jButton2.setText("Edit");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1224,7 +1238,6 @@ public class FormBarang extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(255, 0, 0));
-        jButton3.setIcon(new javax.swing.ImageIcon("E:\\Gudang\\remove.png")); // NOI18N
         jButton3.setText("Hapus");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1273,6 +1286,49 @@ public class FormBarang extends javax.swing.JFrame {
         );
 
         panelKanan.add(cardHome, "cardHome");
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 645, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 356, Short.MAX_VALUE)
+        );
+
+        jButton16.setText("jButton16");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout cardLaporanLayout = new javax.swing.GroupLayout(cardLaporan);
+        cardLaporan.setLayout(cardLaporanLayout);
+        cardLaporanLayout.setHorizontalGroup(
+            cardLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cardLaporanLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(cardLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton16)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(418, Short.MAX_VALUE))
+        );
+        cardLaporanLayout.setVerticalGroup(
+            cardLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cardLaporanLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton16)
+                .addContainerGap(317, Short.MAX_VALUE))
+        );
+
+        panelKanan.add(cardLaporan, "cardLaporan");
 
         jSplitPane1.setRightComponent(panelKanan);
 
@@ -1505,6 +1561,39 @@ public class FormBarang extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        con = (new Koneksi().getConnection());
+        try {
+            String qq = "SELECT stok, isi FROM barang";
+            JDBCCategoryDataset dataset = new JDBCCategoryDataset(con, qq);
+            JFreeChart chart = ChartFactory.createLineChart("Grafik Laporan", "stok", "isi", dataset);
+            ChartPanel chartPanel = new ChartPanel(chart);
+            jPanel6.setVisible(true);
+            jPanel6.removeAll();
+            jPanel6.add(chartPanel, BorderLayout.CENTER);
+            jPanel6.validate();
+        } catch (Exception e) {
+        }
+//            con = (new Koneksi().getConnection());
+//        try{
+//            String q= "SELECT date, income_today,admission_fee_today FROM `profit`";
+//            JDBCCategoryDataset dataset = new JDBCCategoryDataset(con, q);
+//            JFreeChart chart = ChartFactory.createLineChart("Query Chart","Tanggal","Pendapatan", dataset, PlotOrientation.VERTICAL, false, false, false);
+////            CategoryPlot catPlot = chart.getCategoryPlot();
+//            ChartPanel chartPanel=new ChartPanel(chart);
+//            panelMyChart.removeAll();
+//            panelMyChart.add(chartPanel, BorderLayout.CENTER);
+//            panelMyChart.validate();
+//            
+//            
+//        } catch (Exception e){
+//        }
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void bexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexitActionPerformed
+        cardLayout.show(panelKanan, "cardLaporan");
+    }//GEN-LAST:event_bexitActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1549,6 +1638,7 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JButton bunboxnig;
     private javax.swing.JButton bupdate;
     private javax.swing.JPanel cardHome;
+    private javax.swing.JPanel cardLaporan;
     private javax.swing.JPanel cardTambahData;
     private javax.swing.JPanel cardUnboxing;
     private javax.swing.JButton jButton1;
@@ -1558,6 +1648,7 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
@@ -1622,6 +1713,7 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
