@@ -380,8 +380,8 @@ public class FormBarang extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel43 = new javax.swing.JLabel();
         cardLaporan = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
         jButton16 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(33, 152, 92));
@@ -390,7 +390,6 @@ public class FormBarang extends javax.swing.JFrame {
         jSplitPane1.setBorder(null);
 
         panekKiri.setBackground(new java.awt.Color(33, 152, 92));
-        panekKiri.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bhome.setBackground(new java.awt.Color(33, 152, 92));
         bhome.setText("Home");
@@ -399,7 +398,6 @@ public class FormBarang extends javax.swing.JFrame {
                 bhomeActionPerformed(evt);
             }
         });
-        panekKiri.add(bhome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 200, 46));
 
         btbhdata.setBackground(new java.awt.Color(33, 152, 92));
         btbhdata.setText("Barang Masuk");
@@ -408,7 +406,6 @@ public class FormBarang extends javax.swing.JFrame {
                 btbhdataActionPerformed(evt);
             }
         });
-        panekKiri.add(btbhdata, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 200, 45));
 
         bupdate.setBackground(new java.awt.Color(33, 152, 92));
         bupdate.setText("Buka Kotak");
@@ -417,7 +414,6 @@ public class FormBarang extends javax.swing.JFrame {
                 bupdateActionPerformed(evt);
             }
         });
-        panekKiri.add(bupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 200, 45));
 
         bunboxnig.setBackground(new java.awt.Color(33, 152, 92));
         bunboxnig.setText("Barang Keluar");
@@ -426,7 +422,6 @@ public class FormBarang extends javax.swing.JFrame {
                 bunboxnigActionPerformed(evt);
             }
         });
-        panekKiri.add(bunboxnig, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 200, 52));
 
         bexit.setBackground(new java.awt.Color(33, 152, 92));
         bexit.setText("Laporan");
@@ -435,7 +430,6 @@ public class FormBarang extends javax.swing.JFrame {
                 bexitActionPerformed(evt);
             }
         });
-        panekKiri.add(bexit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 200, 45));
 
         jPanel5.setBackground(new java.awt.Color(48, 204, 126));
 
@@ -458,8 +452,8 @@ public class FormBarang extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel37)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE))
+                        .addGap(0, 73, Short.MAX_VALUE))
+                    .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addComponent(jSeparator4)
         );
@@ -477,14 +471,46 @@ public class FormBarang extends javax.swing.JFrame {
                         .addComponent(jLabel39)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-
-        panekKiri.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 140));
 
         bexit1.setBackground(new java.awt.Color(33, 152, 92));
         bexit1.setText("Exit");
-        panekKiri.add(bexit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 200, 45));
+
+        javax.swing.GroupLayout panekKiriLayout = new javax.swing.GroupLayout(panekKiri);
+        panekKiri.setLayout(panekKiriLayout);
+        panekKiriLayout.setHorizontalGroup(
+            panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btbhdata, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bhome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bexit1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bunboxnig, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        panekKiriLayout.setVerticalGroup(
+            panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panekKiriLayout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panekKiriLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btbhdata, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bhome, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panekKiriLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(bupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panekKiriLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(bexit1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panekKiriLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(bunboxnig, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panekKiriLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         jSplitPane1.setLeftComponent(panekKiri);
 
@@ -627,7 +653,7 @@ public class FormBarang extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 1063, Short.MAX_VALUE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 984, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
@@ -717,7 +743,7 @@ public class FormBarang extends javax.swing.JFrame {
                 .addComponent(jButton11)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cardUnboxingLayout = new javax.swing.GroupLayout(cardUnboxing);
@@ -891,7 +917,7 @@ public class FormBarang extends javax.swing.JFrame {
                                         .addGap(114, 114, 114)
                                         .addComponent(jButton1)))))
                         .addGap(117, 117, 117)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1075,7 +1101,7 @@ public class FormBarang extends javax.swing.JFrame {
                                         .addComponent(jButton15)
                                         .addGap(18, 18, 18)
                                         .addComponent(jButton4)))))
-                        .addGap(0, 753, Short.MAX_VALUE))
+                        .addGap(0, 678, Short.MAX_VALUE))
                     .addComponent(jSeparator2))
                 .addContainerGap())
         );
@@ -1122,7 +1148,7 @@ public class FormBarang extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(309, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Data Kecil", jPanel1);
@@ -1162,14 +1188,14 @@ public class FormBarang extends javax.swing.JFrame {
                     .addGroup(kosongLayout.createSequentialGroup()
                         .addGroup(kosongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(kosongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField2)
                             .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)))
                     .addGroup(kosongLayout.createSequentialGroup()
                         .addComponent(jLabel36)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                         .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(635, 635, 635))
         );
@@ -1188,7 +1214,7 @@ public class FormBarang extends javax.swing.JFrame {
                 .addGroup(kosongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(573, Short.MAX_VALUE))
+                .addContainerGap(526, Short.MAX_VALUE))
         );
 
         panelKanan.add(kosong, "card3");
@@ -1266,7 +1292,7 @@ public class FormBarang extends javax.swing.JFrame {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jLabel43)))
-                .addGap(266, 291, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cardHomeLayout.setVerticalGroup(
             cardHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1281,24 +1307,11 @@ public class FormBarang extends javax.swing.JFrame {
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43))
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
                 .addGap(38, 38, 38))
         );
 
         panelKanan.add(cardHome, "cardHome");
-
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 645, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 356, Short.MAX_VALUE)
-        );
 
         jButton16.setText("jButton16");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -1307,25 +1320,41 @@ public class FormBarang extends javax.swing.JFrame {
             }
         });
 
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 558, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 360, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout cardLaporanLayout = new javax.swing.GroupLayout(cardLaporan);
         cardLaporan.setLayout(cardLaporanLayout);
         cardLaporanLayout.setHorizontalGroup(
             cardLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardLaporanLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
                 .addGroup(cardLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton16)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(418, Short.MAX_VALUE))
+                    .addGroup(cardLaporanLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cardLaporanLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jButton16)))
+                .addContainerGap(446, Short.MAX_VALUE))
         );
         cardLaporanLayout.setVerticalGroup(
             cardLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardLaporanLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton16)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(293, Short.MAX_VALUE))
         );
 
         panelKanan.add(cardLaporan, "cardLaporan");
@@ -1566,28 +1595,14 @@ public class FormBarang extends javax.swing.JFrame {
         try {
             String qq = "SELECT stok, isi FROM barang";
             JDBCCategoryDataset dataset = new JDBCCategoryDataset(con, qq);
-            JFreeChart chart = ChartFactory.createLineChart("Grafik Laporan", "stok", "isi", dataset);
+            JFreeChart chart = ChartFactory.createLineChart("Grafik Laporan", "stok", "isi", dataset, PlotOrientation.VERTICAL, false,false,false);
             ChartPanel chartPanel = new ChartPanel(chart);
-            jPanel6.setVisible(true);
+            chartPanel.setSize(jPanel6.getSize());
             jPanel6.removeAll();
             jPanel6.add(chartPanel, BorderLayout.CENTER);
             jPanel6.validate();
         } catch (Exception e) {
         }
-//            con = (new Koneksi().getConnection());
-//        try{
-//            String q= "SELECT date, income_today,admission_fee_today FROM `profit`";
-//            JDBCCategoryDataset dataset = new JDBCCategoryDataset(con, q);
-//            JFreeChart chart = ChartFactory.createLineChart("Query Chart","Tanggal","Pendapatan", dataset, PlotOrientation.VERTICAL, false, false, false);
-////            CategoryPlot catPlot = chart.getCategoryPlot();
-//            ChartPanel chartPanel=new ChartPanel(chart);
-//            panelMyChart.removeAll();
-//            panelMyChart.add(chartPanel, BorderLayout.CENTER);
-//            panelMyChart.validate();
-//            
-//            
-//        } catch (Exception e){
-//        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void bexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexitActionPerformed
