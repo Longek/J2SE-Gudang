@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.jdbc.JDBCCategoryDataset;
 import resource.Koneksi;
@@ -435,6 +436,8 @@ public class FormBarang extends javax.swing.JFrame {
 
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
 
+        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/gudang.png"))); // NOI18N
+
         jLabel37.setFont(new java.awt.Font("Gill Sans MT", 1, 13)); // NOI18N
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Admin");
@@ -448,11 +451,11 @@ public class FormBarang extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel37)
-                        .addGap(0, 73, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jLabel39, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addComponent(jSeparator4)
@@ -481,13 +484,16 @@ public class FormBarang extends javax.swing.JFrame {
         panekKiri.setLayout(panekKiriLayout);
         panekKiriLayout.setHorizontalGroup(
             panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(btbhdata, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(bhome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(bupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(bexit1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(bunboxnig, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panekKiriLayout.createSequentialGroup()
+                .addGroup(panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btbhdata, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bhome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bexit1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bunboxnig, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panekKiriLayout.setVerticalGroup(
             panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -653,7 +659,7 @@ public class FormBarang extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 984, Short.MAX_VALUE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 978, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
@@ -917,7 +923,7 @@ public class FormBarang extends javax.swing.JFrame {
                                         .addGap(114, 114, 114)
                                         .addComponent(jButton1)))))
                         .addGap(117, 117, 117)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1101,7 +1107,7 @@ public class FormBarang extends javax.swing.JFrame {
                                         .addComponent(jButton15)
                                         .addGap(18, 18, 18)
                                         .addComponent(jButton4)))))
-                        .addGap(0, 678, Short.MAX_VALUE))
+                        .addGap(0, 668, Short.MAX_VALUE))
                     .addComponent(jSeparator2))
                 .addContainerGap())
         );
@@ -1195,7 +1201,7 @@ public class FormBarang extends javax.swing.JFrame {
                             .addComponent(jTextField12, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)))
                     .addGroup(kosongLayout.createSequentialGroup()
                         .addComponent(jLabel36)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(635, 635, 635))
         );
@@ -1345,7 +1351,7 @@ public class FormBarang extends javax.swing.JFrame {
                     .addGroup(cardLaporanLayout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addComponent(jButton16)))
-                .addContainerGap(446, Short.MAX_VALUE))
+                .addContainerGap(444, Short.MAX_VALUE))
         );
         cardLaporanLayout.setVerticalGroup(
             cardLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1366,7 +1372,7 @@ public class FormBarang extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jSplitPane1)
                 .addContainerGap())
         );
@@ -1582,7 +1588,7 @@ public class FormBarang extends javax.swing.JFrame {
                options[0] //default button
             );
             if(result == JOptionPane.YES_OPTION){
-               controller.delete();
+                controller.delete();
             }else if (result == JOptionPane.NO_OPTION){
                 JOptionPane.showMessageDialog(null, jTable1.getValueAt(baris, 1).toString()+" Batal Di Hapus");
             }else {
@@ -1595,9 +1601,10 @@ public class FormBarang extends javax.swing.JFrame {
         try {
             String qq = "SELECT stok, isi FROM barang";
             JDBCCategoryDataset dataset = new JDBCCategoryDataset(con, qq);
-            JFreeChart chart = ChartFactory.createLineChart("Grafik Laporan", "stok", "isi", dataset, PlotOrientation.VERTICAL, false,false,false);
+            JFreeChart chart = ChartFactory.createLineChart("Grafik Laporan", "stok", "isi", dataset);
             ChartPanel chartPanel = new ChartPanel(chart);
             chartPanel.setSize(jPanel6.getSize());
+//            chart.setBorderVisible(true);
             jPanel6.removeAll();
             jPanel6.add(chartPanel, BorderLayout.CENTER);
             jPanel6.validate();
