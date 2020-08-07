@@ -61,7 +61,14 @@ public class BarangDao {
     }
     
     public void delete(Barang barang) throws SQLException{
-        String sql ="delete from barang where id_barang = ?";
+        String sql ="call hapusbarang(?)";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, barang.getId());
+        ps.executeUpdate();
+    }
+    
+    public void deleteidpecah(Barang barang) throws SQLException{
+        String sql = "Update barang set id_pecah = NULL where id_barang=?";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, barang.getId());
         ps.executeUpdate();
