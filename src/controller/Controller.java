@@ -150,6 +150,7 @@ public class Controller {
         barang.setIsi(Integer.parseInt(view.getjTextField7().getText()));
         barang.setId_pecah(null);
         try {
+            barangDao.insertrekam(barang);
             barangDao.insert(barang);
              JOptionPane.showMessageDialog(null, "Entry OK"); 
               view.getjTable1().setModel(barangDao.selectAllDataToTableModel());             
@@ -164,6 +165,7 @@ public class Controller {
             barang.setId(view.getKodebarangbesar().getText());
             barang.setStok(Integer.parseInt(view.getjTextField6().getText()));
             try {
+                barangDao.insertrekam(barang);
                 barangDao.tambahbarang(barang);
                 JOptionPane.showMessageDialog(null, "Entry OK"); 
                  view.getjTable1().setModel(barangDao.selectAllDataToTableModel());

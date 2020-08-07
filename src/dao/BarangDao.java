@@ -198,8 +198,12 @@ public class BarangDao {
      }
      
      public void insertrekam(Barang barang)throws SQLException{
-         String sql = "insert into rekap_masuk values(?,now(),?,?)"
-                 ;
+         String sql = "insert into rekap_masuk values(?,now(),?,?)";
+         PreparedStatement ps = con.prepareStatement(sql);
+         ps.setString(1, barang.getId());
+         ps.setInt(2, barang.getStok());
+         ps.setString(3, "hanif");
+         ps.executeUpdate();
      }
      public void kurangstok(Barang barang) throws SQLException{
          String sql = "call kurangstok(?,?)";
