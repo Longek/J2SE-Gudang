@@ -283,17 +283,17 @@ public class FormBarang extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         panekKiri = new javax.swing.JPanel();
-        bhome = new javax.swing.JButton();
-        btbhdata = new javax.swing.JButton();
-        bunboxing = new javax.swing.JButton();
-        bukeluar = new javax.swing.JButton();
-        bexit = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel38 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        bexit1 = new javax.swing.JButton();
+        btbhdata = new keeptoo.KButton();
+        bhome = new keeptoo.KButton();
+        bunboxing = new keeptoo.KButton();
+        bukeluar = new keeptoo.KButton();
+        laporan = new keeptoo.KButton();
+        bexit = new keeptoo.KButton();
         panelKanan = new javax.swing.JPanel();
         cardUnboxing = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -400,6 +400,7 @@ public class FormBarang extends javax.swing.JFrame {
         jButton23 = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
         tanggal = new com.toedter.calendar.JDateChooser();
+        jSeparator5 = new javax.swing.JSeparator();
         cardHome = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -420,46 +421,6 @@ public class FormBarang extends javax.swing.JFrame {
         jSplitPane1.setBorder(null);
 
         panekKiri.setBackground(new java.awt.Color(33, 152, 92));
-
-        bhome.setBackground(new java.awt.Color(33, 152, 92));
-        bhome.setText("Home");
-        bhome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bhomeActionPerformed(evt);
-            }
-        });
-
-        btbhdata.setBackground(new java.awt.Color(33, 152, 92));
-        btbhdata.setText("Barang Masuk");
-        btbhdata.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btbhdataActionPerformed(evt);
-            }
-        });
-
-        bunboxing.setBackground(new java.awt.Color(33, 152, 92));
-        bunboxing.setText("Buka Kotak");
-        bunboxing.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bunboxingActionPerformed(evt);
-            }
-        });
-
-        bukeluar.setBackground(new java.awt.Color(33, 152, 92));
-        bukeluar.setText("Barang Keluar");
-        bukeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bukeluarActionPerformed(evt);
-            }
-        });
-
-        bexit.setBackground(new java.awt.Color(33, 152, 92));
-        bexit.setText("Laporan");
-        bexit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bexitActionPerformed(evt);
-            }
-        });
 
         jPanel5.setBackground(new java.awt.Color(48, 204, 126));
 
@@ -506,41 +467,205 @@ public class FormBarang extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        bexit1.setBackground(new java.awt.Color(33, 152, 92));
-        bexit1.setText("Exit");
+        btbhdata.setBackground(new java.awt.Color(33, 152, 92));
+        btbhdata.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/image/iconAdd.png"))); // NOI18N
+        btbhdata.setText("           Barang Masuk");
+        btbhdata.setToolTipText("");
+        btbhdata.setAlignmentY(0.0F);
+        btbhdata.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btbhdata.setHideActionText(true);
+        btbhdata.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btbhdata.setIconTextGap(25);
+        btbhdata.setkBackGroundColor(new java.awt.Color(33, 152, 92));
+        btbhdata.setkBorderRadius(0);
+        btbhdata.setkEndColor(new java.awt.Color(33, 152, 92));
+        btbhdata.setkHoverEndColor(new java.awt.Color(33, 152, 92));
+        btbhdata.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        btbhdata.setkHoverStartColor(new java.awt.Color(0, 175, 115));
+        btbhdata.setkPressedColor(new java.awt.Color(204, 204, 204));
+        btbhdata.setkSelectedColor(new java.awt.Color(0, 175, 115));
+        btbhdata.setkStartColor(new java.awt.Color(33, 152, 92));
+        btbhdata.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btbhdata.setMaximumSize(new java.awt.Dimension(230, 50));
+        btbhdata.setMinimumSize(new java.awt.Dimension(230, 50));
+        btbhdata.setPreferredSize(new java.awt.Dimension(230, 50));
+        btbhdata.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btbhdataActionPerformed(evt);
+            }
+        });
+
+        bhome.setBackground(new java.awt.Color(33, 152, 92));
+        bhome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/image/iconHome.png"))); // NOI18N
+        bhome.setText("Home");
+        bhome.setToolTipText("");
+        bhome.setAlignmentY(0.0F);
+        bhome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bhome.setHideActionText(true);
+        bhome.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        bhome.setIconTextGap(25);
+        bhome.setkBackGroundColor(new java.awt.Color(33, 152, 92));
+        bhome.setkBorderRadius(0);
+        bhome.setkEndColor(new java.awt.Color(33, 152, 92));
+        bhome.setkHoverEndColor(new java.awt.Color(33, 152, 92));
+        bhome.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        bhome.setkHoverStartColor(new java.awt.Color(0, 175, 115));
+        bhome.setkPressedColor(new java.awt.Color(204, 204, 204));
+        bhome.setkSelectedColor(new java.awt.Color(0, 175, 115));
+        bhome.setkStartColor(new java.awt.Color(33, 152, 92));
+        bhome.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bhome.setMaximumSize(new java.awt.Dimension(230, 50));
+        bhome.setMinimumSize(new java.awt.Dimension(230, 50));
+        bhome.setPreferredSize(new java.awt.Dimension(230, 50));
+        bhome.setSelected(true);
+        bhome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bhomeActionPerformed(evt);
+            }
+        });
+
+        bunboxing.setBackground(new java.awt.Color(33, 152, 92));
+        bunboxing.setText("       Buka Kotak");
+        bunboxing.setToolTipText("");
+        bunboxing.setAlignmentY(0.0F);
+        bunboxing.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bunboxing.setHideActionText(true);
+        bunboxing.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bunboxing.setIconTextGap(25);
+        bunboxing.setkBackGroundColor(new java.awt.Color(33, 152, 92));
+        bunboxing.setkBorderRadius(0);
+        bunboxing.setkEndColor(new java.awt.Color(33, 152, 92));
+        bunboxing.setkHoverEndColor(new java.awt.Color(33, 152, 92));
+        bunboxing.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        bunboxing.setkHoverStartColor(new java.awt.Color(0, 175, 115));
+        bunboxing.setkPressedColor(new java.awt.Color(204, 204, 204));
+        bunboxing.setkSelectedColor(new java.awt.Color(0, 175, 115));
+        bunboxing.setkStartColor(new java.awt.Color(33, 152, 92));
+        bunboxing.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bunboxing.setMaximumSize(new java.awt.Dimension(230, 50));
+        bunboxing.setMinimumSize(new java.awt.Dimension(230, 50));
+        bunboxing.setPreferredSize(new java.awt.Dimension(230, 50));
+        bunboxing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bunboxingActionPerformed(evt);
+            }
+        });
+
+        bukeluar.setBackground(new java.awt.Color(33, 152, 92));
+        bukeluar.setText("            Barang Keluar");
+        bukeluar.setToolTipText("");
+        bukeluar.setAlignmentY(0.0F);
+        bukeluar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bukeluar.setHideActionText(true);
+        bukeluar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bukeluar.setIconTextGap(25);
+        bukeluar.setkBackGroundColor(new java.awt.Color(33, 152, 92));
+        bukeluar.setkBorderRadius(0);
+        bukeluar.setkEndColor(new java.awt.Color(33, 152, 92));
+        bukeluar.setkHoverEndColor(new java.awt.Color(33, 152, 92));
+        bukeluar.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        bukeluar.setkHoverStartColor(new java.awt.Color(0, 175, 115));
+        bukeluar.setkPressedColor(new java.awt.Color(204, 204, 204));
+        bukeluar.setkSelectedColor(new java.awt.Color(0, 175, 115));
+        bukeluar.setkStartColor(new java.awt.Color(33, 152, 92));
+        bukeluar.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bukeluar.setMaximumSize(new java.awt.Dimension(230, 50));
+        bukeluar.setMinimumSize(new java.awt.Dimension(230, 50));
+        bukeluar.setPreferredSize(new java.awt.Dimension(230, 50));
+        bukeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bukeluarActionPerformed(evt);
+            }
+        });
+
+        laporan.setBackground(new java.awt.Color(33, 152, 92));
+        laporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/image/iconReport.png"))); // NOI18N
+        laporan.setText("   Laporan");
+        laporan.setToolTipText("");
+        laporan.setAlignmentY(0.0F);
+        laporan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        laporan.setHideActionText(true);
+        laporan.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        laporan.setIconTextGap(25);
+        laporan.setkBackGroundColor(new java.awt.Color(33, 152, 92));
+        laporan.setkBorderRadius(0);
+        laporan.setkEndColor(new java.awt.Color(33, 152, 92));
+        laporan.setkHoverEndColor(new java.awt.Color(33, 152, 92));
+        laporan.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        laporan.setkHoverStartColor(new java.awt.Color(0, 175, 115));
+        laporan.setkPressedColor(new java.awt.Color(204, 204, 204));
+        laporan.setkSelectedColor(new java.awt.Color(0, 175, 115));
+        laporan.setkStartColor(new java.awt.Color(33, 152, 92));
+        laporan.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        laporan.setMaximumSize(new java.awt.Dimension(230, 50));
+        laporan.setMinimumSize(new java.awt.Dimension(230, 50));
+        laporan.setPreferredSize(new java.awt.Dimension(230, 50));
+        laporan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                laporanActionPerformed(evt);
+            }
+        });
+
+        bexit.setBackground(new java.awt.Color(33, 152, 92));
+        bexit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resource/image/iconLogout.png"))); // NOI18N
+        bexit.setText("Exit");
+        bexit.setToolTipText("");
+        bexit.setAlignmentY(0.0F);
+        bexit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bexit.setHideActionText(true);
+        bexit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bexit.setIconTextGap(25);
+        bexit.setkBackGroundColor(new java.awt.Color(33, 152, 92));
+        bexit.setkBorderRadius(0);
+        bexit.setkEndColor(new java.awt.Color(33, 152, 92));
+        bexit.setkHoverEndColor(new java.awt.Color(33, 152, 92));
+        bexit.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        bexit.setkHoverStartColor(new java.awt.Color(0, 175, 115));
+        bexit.setkPressedColor(new java.awt.Color(204, 204, 204));
+        bexit.setkSelectedColor(new java.awt.Color(0, 175, 115));
+        bexit.setkStartColor(new java.awt.Color(33, 152, 92));
+        bexit.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        bexit.setMaximumSize(new java.awt.Dimension(230, 50));
+        bexit.setMinimumSize(new java.awt.Dimension(230, 50));
+        bexit.setPreferredSize(new java.awt.Dimension(230, 50));
+        bexit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bexitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panekKiriLayout = new javax.swing.GroupLayout(panekKiri);
         panekKiri.setLayout(panekKiriLayout);
         panekKiriLayout.setHorizontalGroup(
             panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panekKiriLayout.createSequentialGroup()
-                .addGroup(panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btbhdata, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bhome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bunboxing, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bexit1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bukeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panekKiriLayout.createSequentialGroup()
+                .addGroup(panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(bukeluar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(bunboxing, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(bhome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btbhdata, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(laporan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         panekKiriLayout.setVerticalGroup(
             panekKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panekKiriLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bhome, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btbhdata, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
+                .addComponent(bhome, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btbhdata, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(bunboxing, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bukeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bexit1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(bukeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(laporan, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(panekKiri);
@@ -684,7 +809,7 @@ public class FormBarang extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 1189, Short.MAX_VALUE)
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 1039, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
@@ -948,7 +1073,7 @@ public class FormBarang extends javax.swing.JFrame {
                                         .addGap(114, 114, 114)
                                         .addComponent(jButton1)))))
                         .addGap(117, 117, 117)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -1132,7 +1257,7 @@ public class FormBarang extends javax.swing.JFrame {
                                         .addComponent(jButton15)
                                         .addGap(18, 18, 18)
                                         .addComponent(jButton4)))))
-                        .addGap(0, 879, Short.MAX_VALUE))
+                        .addGap(0, 729, Short.MAX_VALUE))
                     .addComponent(jSeparator2))
                 .addContainerGap())
         );
@@ -1179,7 +1304,7 @@ public class FormBarang extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Data Kecil", jPanel1);
@@ -1282,96 +1407,101 @@ public class FormBarang extends javax.swing.JFrame {
             cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3)
             .addGroup(cardkeluarLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(48, 48, 48)
                 .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cardkeluarLayout.createSequentialGroup()
-                        .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cardkeluarLayout.createSequentialGroup()
-                                .addComponent(jButton23)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton24)
-                                .addGap(30, 30, 30)
-                                .addComponent(tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel48))
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(cardkeluarLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jButton21)
                         .addGap(18, 18, 18)
                         .addComponent(jButton22)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(cardkeluarLayout.createSequentialGroup()
+                        .addContainerGap(179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardkeluarLayout.createSequentialGroup()
                         .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel44)
+                            .addComponent(jLabel45)
+                            .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cardkeluarLayout.createSequentialGroup()
                                 .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(cardkeluarLayout.createSequentialGroup()
-                                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(62, 62, 62))
+                                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(cardkeluarLayout.createSequentialGroup()
-                                        .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(cardkeluarLayout.createSequentialGroup()
-                                    .addComponent(jLabel36)
-                                    .addGap(102, 102, 102)))
-                            .addGroup(cardkeluarLayout.createSequentialGroup()
-                                .addComponent(jLabel44)
-                                .addGap(117, 117, 117)))
-                        .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(1, 1, 1))
                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(cardkeluarLayout.createSequentialGroup()
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(832, Short.MAX_VALUE))
+                                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+            .addGroup(cardkeluarLayout.createSequentialGroup()
+                .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardkeluarLayout.createSequentialGroup()
-                        .addComponent(jLabel45)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(861, 861, 861))))
+                        .addGap(247, 247, 247)
+                        .addComponent(jButton23)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton24)
+                        .addGap(30, 30, 30)
+                        .addComponent(tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(cardkeluarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel48))
+                    .addGroup(cardkeluarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 1063, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         cardkeluarLayout.setVerticalGroup(
             cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardkeluarLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel48)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel34)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel35)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel44)
-                    .addComponent(jLabel46))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel45)
-                    .addComponent(jLabel47))
-                .addGap(13, 13, 13)
-                .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel36)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton21)
-                    .addComponent(jButton22))
-                .addGap(22, 22, 22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
                 .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cardkeluarLayout.createSequentialGroup()
                         .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton23)
-                            .addComponent(jButton24))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE))
+                            .addComponent(jLabel34)
+                            .addComponent(jButton20)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel35)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel45)
+                            .addComponent(jLabel47))
+                        .addGap(13, 13, 13)
+                        .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel36)
+                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton21)
+                            .addComponent(jButton22)))
+                    .addGroup(cardkeluarLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel46)
+                        .addGap(110, 110, 110)))
+                .addGap(22, 22, 22)
+                .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cardkeluarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton23)
+                        .addComponent(jButton24))
                     .addGroup(cardkeluarLayout.createSequentialGroup()
                         .addComponent(tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(3, 3, 3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
         );
 
         panelKanan.add(cardkeluar, "cardkeluar");
@@ -1464,7 +1594,7 @@ public class FormBarang extends javax.swing.JFrame {
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel43))
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
                 .addGap(38, 38, 38))
         );
 
@@ -1502,7 +1632,7 @@ public class FormBarang extends javax.swing.JFrame {
                     .addGroup(cardLaporanLayout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addComponent(jButton16)))
-                .addContainerGap(655, Short.MAX_VALUE))
+                .addContainerGap(505, Short.MAX_VALUE))
         );
         cardLaporanLayout.setVerticalGroup(
             cardLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1511,7 +1641,7 @@ public class FormBarang extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton16)
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
 
         panelKanan.add(cardLaporan, "cardLaporan");
@@ -1536,14 +1666,6 @@ public class FormBarang extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bhomeActionPerformed
-        cardLayout.show(panelKanan, "cardHome");
-    }//GEN-LAST:event_bhomeActionPerformed
-
-    private void btbhdataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbhdataActionPerformed
-        cardLayout.show(panelKanan, "cardTambahData");
-    }//GEN-LAST:event_btbhdataActionPerformed
-
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         controller.searchOnBarang(jTextField1.getText());
     }//GEN-LAST:event_jTextField1KeyReleased
@@ -1555,10 +1677,6 @@ public class FormBarang extends javax.swing.JFrame {
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void bukeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bukeluarActionPerformed
-         cardLayout.show(panelKanan, "cardkeluar");       
-    }//GEN-LAST:event_bukeluarActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         try {
@@ -1572,10 +1690,6 @@ public class FormBarang extends javax.swing.JFrame {
     private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField22ActionPerformed
-
-    private void bunboxingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bunboxingActionPerformed
-         cardLayout.show(panelKanan, "cardUnboxing");
-    }//GEN-LAST:event_bunboxingActionPerformed
 
     private void kodebarangbesarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kodebarangbesarKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
@@ -1763,10 +1877,6 @@ public class FormBarang extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void bexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexitActionPerformed
-        cardLayout.show(panelKanan, "cardLaporan");
-    }//GEN-LAST:event_bexitActionPerformed
-
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton20ActionPerformed
@@ -1784,12 +1894,62 @@ public class FormBarang extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void tanggalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tanggalMouseClicked
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_tanggalMouseClicked
 
     private void tanggalInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tanggalInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_tanggalInputMethodTextChanged
+
+    private void btbhdataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbhdataActionPerformed
+          cardLayout.show(panelKanan, "cardTambahData");
+          bhome.setSelected(false);
+          btbhdata.setSelected(true);
+          bunboxing.setSelected(false);
+          bukeluar.setSelected(false);   
+          laporan.setSelected(false);          
+
+    }//GEN-LAST:event_btbhdataActionPerformed
+
+    private void bhomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bhomeActionPerformed
+              cardLayout.show(panelKanan, "cardHome");
+              bhome.setSelected(true);
+              btbhdata.setSelected(false);
+              bunboxing.setSelected(false);
+              bukeluar.setSelected(false);
+              laporan.setSelected(false);
+    }//GEN-LAST:event_bhomeActionPerformed
+
+    private void bunboxingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bunboxingActionPerformed
+         cardLayout.show(panelKanan, "cardUnboxing");
+          bhome.setSelected(false);
+          btbhdata.setSelected(false);
+          bunboxing.setSelected(true);
+          bukeluar.setSelected(false);
+          laporan.setSelected(false);
+    }//GEN-LAST:event_bunboxingActionPerformed
+
+    private void bukeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bukeluarActionPerformed
+         cardLayout.show(panelKanan, "cardkeluar");   
+          bhome.setSelected(false);
+          btbhdata.setSelected(false);
+          bunboxing.setSelected(false);
+          bukeluar.setSelected(true);
+          laporan.setSelected(false);
+    }//GEN-LAST:event_bukeluarActionPerformed
+
+    private void laporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporanActionPerformed
+        cardLayout.show(panelKanan, "cardLaporan");
+        bhome.setSelected(false);
+        btbhdata.setSelected(false);
+        bunboxing.setSelected(false);
+        bukeluar.setSelected(false);
+        laporan.setSelected(true);
+    }//GEN-LAST:event_laporanActionPerformed
+
+    private void bexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bexitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bexitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1828,12 +1988,11 @@ public class FormBarang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bexit;
-    private javax.swing.JButton bexit1;
-    private javax.swing.JButton bhome;
-    private javax.swing.JButton btbhdata;
-    private javax.swing.JButton bukeluar;
-    private javax.swing.JButton bunboxing;
+    private keeptoo.KButton bexit;
+    private keeptoo.KButton bhome;
+    private keeptoo.KButton btbhdata;
+    private keeptoo.KButton bukeluar;
+    private keeptoo.KButton bunboxing;
     private javax.swing.JPanel cardHome;
     private javax.swing.JPanel cardLaporan;
     private javax.swing.JPanel cardTambahData;
@@ -1929,6 +2088,7 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
@@ -1956,6 +2116,7 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField kodebarangbesar;
+    private keeptoo.KButton laporan;
     private javax.swing.JPanel panekKiri;
     private javax.swing.JPanel panelKanan;
     private com.toedter.calendar.JDateChooser tanggal;
