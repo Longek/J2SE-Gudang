@@ -129,13 +129,13 @@ public class BarangDao {
             String sql = "SELECT id_pecah FROM barang WHERE id_barang='"+kode+"'";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            String id = "";
+            String id = null;
             if (rs.next()) {
                 id= rs.getString(1);
                 
             }
             else{
-                id= "";
+                id= "kosong";
             }
             return id;
         
