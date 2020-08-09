@@ -11,7 +11,7 @@ import resource.Koneksi;
 
 /**
  *
- * @author bayug
+ * @author hanif
  */
 public class BarangDao {
     Connection con;
@@ -91,6 +91,7 @@ public class BarangDao {
         }
         return tableModel;
     }
+    
     
     public DefaultTableModel searchByAllToTable(String word) {
         DefaultTableModel tableModel = new DefaultTableModel(); tableModel.setRowCount(0); tableModel.setColumnCount(0);

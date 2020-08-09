@@ -6,15 +6,19 @@
 package controller;
 
 import dao.BarangDao;
+import dao.KeluarDao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Barang;
+import model.Keluar;
 import resource.Koneksi;
 import view.FormBarang;
 import view.UpdateTable;
@@ -27,7 +31,9 @@ public class Controller {
     FormBarang view;
     UpdateTable view2;
     Barang barang;
+    Keluar keluar;
     BarangDao barangDao;
+    KeluarDao keluarDao;
     Koneksi k;
     int x =0;
     Connection con;
@@ -35,9 +41,11 @@ public class Controller {
     public Controller(FormBarang view){
         this.view = view;
         barangDao = new BarangDao();
+        keluarDao = new KeluarDao();
         k = new Koneksi();
         con = k.getConnection();
         view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
+        view.getjTable3().setModel(keluarDao.tablepenjualan());
     }
     public Controller(UpdateTable view2){
         this.view2 = view2;
@@ -217,7 +225,7 @@ public class Controller {
     }
     
     public void cekbukakotak(String kode) throws SQLException{
-        if(barangDao.isAvailable(kode)){
+        if(barangDao.isAvailable(kode) && barangDao.cekisi(kode)>1){
             cekpecahan(kode);
              barang = barangDao.getbarang(kode);
             view.getjTextField21().setText(barang.getNama());
@@ -346,5 +354,52 @@ public class Controller {
         } catch (SQLException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void insertkeluar(){
+        keluar = new Keluar();
+        keluar.setId_brg(view.getjTextField2().getText());
+        keluar.setStok(Integer.parseInt(view.getjTextField19().getText()));
+        keluar.setId_user("hanif");
+        try {
+            keluarDao.insert(keluar);
+            JOptionPane.showMessageDialog(view, "Entry Oke");
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(view, ex);
+        }
+    }
+    public void cekbarangjual(String kode) throws SQLException{
+         if(barangDao.isAvailable(kode)){
+        barang = barangDao.getbarang(kode);
+            view.getjTextField12().setText(barang.getNama());
+            view.getjLabel46().setText(barang.getTipe());
+            view.getjLabel47().setText(barang.getSatuan());
+         }else{
+             JOptionPane.showMessageDialog(view, "Data Barang Tidak Ada");
+         }
+    }
+    public void jam_digital() {
+        int waktumulai =0;
+        new Thread(){
+            @Override
+            public void run(){
+              while(waktumulai == 0){
+                Calendar kalender = new GregorianCalendar();
+                    int jam = kalender.get(Calendar.HOUR);
+                    int menit = kalender.get(Calendar.MINUTE);
+                    int detik = kalender.get(Calendar.SECOND);
+                    int AM_PM = kalender.get(Calendar.AM_PM);
+                    String siang_malam ="";
+             if(AM_PM == 1){
+                    siang_malam="PM"; 
+             }else{
+                    siang_malam = "AM";   
+                  }
+             String time = jam + ":" + menit + ":" + detik + " " + siang_malam;
+             view.getjLabel38().setText(time);               
+              }  
+            }
+        }.start();
     }
 }
