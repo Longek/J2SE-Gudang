@@ -48,14 +48,26 @@ public class FormBarang extends javax.swing.JFrame {
         jTextField12.setEditable(false);
         staring();
         controller.jam_digital();
+        jButton21.setEnabled(false);
+        jLabel50.setVisible(false);
+        jLabel51.setVisible(false);
+        jLabel52.setVisible(false);
     }
 
-    public JTable getjTable3() {
-        return jTable3;
+    public JLabel getjLabel50() {
+        return jLabel50;
     }
 
-    public void setjTable3(JTable jTable3) {
-        this.jTable3 = jTable3;
+    public JLabel getjLabel51() {
+        return jLabel51;
+    }
+
+    public JLabel getjLabel52() {
+        return jLabel52;
+    }
+
+    public JTable getTblKeluar() {
+        return tblKeluar;
     }
 
     public JLabel getjLabel18() {
@@ -385,6 +397,10 @@ public class FormBarang extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        btnhapus = new keeptoo.KButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -428,7 +444,7 @@ public class FormBarang extends javax.swing.JFrame {
         jTextField19 = new javax.swing.JTextField();
         jButton20 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tblKeluar = new javax.swing.JTable();
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
@@ -708,7 +724,7 @@ public class FormBarang extends javax.swing.JFrame {
                 .addComponent(laporan, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(bexit, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(panekKiri);
@@ -996,7 +1012,7 @@ public class FormBarang extends javax.swing.JFrame {
                 .addComponent(jButton11)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout cardUnboxingLayout = new javax.swing.GroupLayout(cardUnboxing);
@@ -1144,6 +1160,16 @@ public class FormBarang extends javax.swing.JFrame {
         ));
         jTable2.setIntercellSpacing(new java.awt.Dimension(2, 2));
         jTable2.setRowHeight(25);
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jTable2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTable2KeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jButton1.setText("Selesai");
@@ -1152,6 +1178,36 @@ public class FormBarang extends javax.swing.JFrame {
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel50.setText("jLabel50");
+
+        jLabel51.setText("jLabel51");
+
+        jLabel52.setText("jLabel52");
+
+        btnhapus.setText("Hapus");
+        btnhapus.setActionCommand("Hapus");
+        btnhapus.setAlignmentY(0.0F);
+        btnhapus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnhapus.setHideActionText(true);
+        btnhapus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnhapus.setIconTextGap(25);
+        btnhapus.setkBorderRadius(0);
+        btnhapus.setkEndColor(new java.awt.Color(217, 93, 93));
+        btnhapus.setkHoverEndColor(new java.awt.Color(0, 102, 51));
+        btnhapus.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        btnhapus.setkHoverStartColor(new java.awt.Color(0, 102, 51));
+        btnhapus.setkIndicatorThickness(0);
+        btnhapus.setkPressedColor(new java.awt.Color(204, 204, 204));
+        btnhapus.setkSelectedColor(new java.awt.Color(0, 102, 51));
+        btnhapus.setkStartColor(new java.awt.Color(212, 74, 74));
+        btnhapus.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnhapus.setMaximumSize(new java.awt.Dimension(67, 37));
+        btnhapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhapusActionPerformed(evt);
             }
         });
 
@@ -1208,9 +1264,23 @@ public class FormBarang extends javax.swing.JFrame {
                                         .addComponent(jButton5)
                                         .addGap(114, 114, 114)
                                         .addComponent(jButton1)))))
-                        .addGap(117, 117, 117)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel51)
+                                    .addComponent(jLabel52))
+                                .addGap(53, 53, 53))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel50)
+                                .addGap(80, 80, 80)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnhapus, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1262,10 +1332,19 @@ public class FormBarang extends javax.swing.JFrame {
                             .addComponent(jButton5)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel50)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel51)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel52))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(btnhapus, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(179, 179, 179))
         );
 
         jTabbedPane1.addTab("Data Kotak", jPanel2);
@@ -1463,7 +1542,7 @@ public class FormBarang extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Data Kecil", jPanel1);
@@ -1631,7 +1710,7 @@ public class FormBarang extends javax.swing.JFrame {
                         .addComponent(btn_transaksi2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btn_transaksi3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE))
         );
 
         panelKanan.add(cardHome, "cardHome");
@@ -1677,7 +1756,7 @@ public class FormBarang extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton16)
-                .addContainerGap(226, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         panelKanan.add(cardLaporan, "cardLaporan");
@@ -1706,6 +1785,14 @@ public class FormBarang extends javax.swing.JFrame {
         jTextField12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         jTextField19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTextField19.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField19KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField19KeyReleased(evt);
+            }
+        });
 
         jButton20.setText("cek");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -1714,7 +1801,7 @@ public class FormBarang extends javax.swing.JFrame {
             }
         });
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblKeluar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1725,9 +1812,9 @@ public class FormBarang extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable3.setIntercellSpacing(new java.awt.Dimension(2, 2));
-        jTable3.setRowHeight(25);
-        jScrollPane3.setViewportView(jTable3);
+        tblKeluar.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        tblKeluar.setRowHeight(25);
+        jScrollPane3.setViewportView(tblKeluar);
 
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(240, 240, 240));
@@ -1881,7 +1968,7 @@ public class FormBarang extends javax.swing.JFrame {
                         .addComponent(jButton24))
                     .addComponent(tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE))
         );
 
         panelKanan.add(cardkeluar, "cardkeluar");
@@ -2075,6 +2162,7 @@ public class FormBarang extends javax.swing.JFrame {
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         try {
+            kd_keluar.setEditable(false);
             controller.cekbarangjual(kd_keluar.getText());
         } catch (SQLException ex) {
             Logger.getLogger(FormBarang.class.getName()).log(Level.SEVERE, null, ex);
@@ -2082,15 +2170,16 @@ public class FormBarang extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        // TODO add your handling code here:
+       kosong3();
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
+       controller.slctTblKeluar();
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        // TODO add your handling code here:
+        controller.slctTblKeluarkemarin();
+        jButton24.setSelected(true);
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void tanggalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tanggalMouseClicked
@@ -2136,6 +2225,7 @@ public class FormBarang extends javax.swing.JFrame {
           bunboxing.setSelected(false);
           bukeluar.setSelected(true);
           laporan.setSelected(false);
+          
     }//GEN-LAST:event_bukeluarActionPerformed
 
     private void laporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporanActionPerformed
@@ -2156,6 +2246,7 @@ public class FormBarang extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSrSptPTrans1ActionPerformed
 
     private void btn_transaksi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_transaksi2ActionPerformed
+        if(jTable1.getSelectedRow()>0){
         int baris = jTable1.getSelectedRow(); 
         UpdateTable ut = new UpdateTable(this, rootPaneCheckingEnabled, jTable1.getValueAt(baris, 0).toString());
          
@@ -2169,10 +2260,14 @@ public class FormBarang extends javax.swing.JFrame {
         ut.getjTextField6().setText(jTable1.getValueAt(baris, 6).toString());
         ut.getjTextField7().setText(jTable1.getValueAt(baris, 7).toString());
         ut.show();
+        }else{
+            JOptionPane.showMessageDialog(null, "Pilih Data Di Table !!");
+        }
     }//GEN-LAST:event_btn_transaksi2ActionPerformed
 
     private void btn_transaksi3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_transaksi3ActionPerformed
- int baris = jTable1.getSelectedRow(); 
+        if(jTable1.getSelectedRow()>0){
+        int baris = jTable1.getSelectedRow(); 
          jLabel43.setText(jTable1.getValueAt(baris, 0).toString());
                     String[] options = {"Ya", "Tidak"}; 
             int result = JOptionPane.showOptionDialog(
@@ -2191,7 +2286,11 @@ public class FormBarang extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, jTable1.getValueAt(baris, 1).toString()+" Batal Di Hapus");
             }else {
                
-            }        // TODO add your handling code here:
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Pilih Data Di Table !!");
+
+        }
     }//GEN-LAST:event_btn_transaksi3ActionPerformed
 
     private void kd_keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kd_keluarActionPerformed
@@ -2200,8 +2299,32 @@ public class FormBarang extends javax.swing.JFrame {
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         controller.insertkeluar();
+        controller.slctTblKeluar();
         kosong3();
     }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jTextField19KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField19KeyPressed
+
+    private void jTextField19KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyReleased
+        validasi3();
+    }//GEN-LAST:event_jTextField19KeyReleased
+
+    private void jTable2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyPressed
+        
+    }//GEN-LAST:event_jTable2KeyPressed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        int baris = jTable2.getSelectedRow(); 
+        jLabel50.setText(jTable2.getValueAt(baris, 0).toString());
+        jLabel51.setText(jTable2.getValueAt(baris, 1).toString());
+        jLabel52.setText(jTable2.getValueAt(baris, 7).toString());
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void btnhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhapusActionPerformed
+        controller.hapusbaru();
+    }//GEN-LAST:event_btnhapusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2246,6 +2369,7 @@ public class FormBarang extends javax.swing.JFrame {
     private keeptoo.KButton btnSrSptPTrans1;
     private keeptoo.KButton btn_transaksi2;
     private keeptoo.KButton btn_transaksi3;
+    private keeptoo.KButton btnhapus;
     private keeptoo.KButton bukeluar;
     private keeptoo.KButton bunboxing;
     private javax.swing.JPanel cardHome;
@@ -2324,6 +2448,9 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2346,7 +2473,6 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -2373,6 +2499,7 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JPanel panekKiri;
     private javax.swing.JPanel panelKanan;
     private com.toedter.calendar.JDateChooser tanggal;
+    private javax.swing.JTable tblKeluar;
     // End of variables declaration//GEN-END:variables
 
     
@@ -2504,6 +2631,13 @@ public class FormBarang extends javax.swing.JFrame {
         jLabel46.setText("-");
         jLabel47.setText("-");
     }
-    
+    public void validasi3(){
+         String regex = "[+-]?[0-9]+(\\.[0-9]+)?([Ee][+-]?[0-9]+)?";
+         if (String.valueOf(jTextField19.getText()).matches(regex) && !jTextField19.getText().equals("")) {
+            jButton21.setEnabled(true);
+        }else{
+            jButton21.setEnabled(false);
+        }
+    }
     
 }

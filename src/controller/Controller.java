@@ -45,7 +45,7 @@ public class Controller {
         k = new Koneksi();
         con = k.getConnection();
         view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
-        view.getjTable3().setModel(keluarDao.tablepenjualan());
+        view.getTblKeluar().setModel(keluarDao.tablepenjualan());
     }
     public Controller(UpdateTable view2){
         this.view2 = view2;
@@ -53,7 +53,14 @@ public class Controller {
         k = new Koneksi();
         con = k.getConnection();
     }
-    
+    public void slctTblKeluar(){
+        keluarDao = new KeluarDao();
+        view.getTblKeluar().setModel(keluarDao.tablepenjualan());
+    }
+    public void slctTblKeluarkemarin(){
+        keluarDao = new KeluarDao();
+        view.getTblKeluar().setModel(keluarDao.tablepenjualankemarin());
+    }
     public void searchOnBarang(String word) {
         view.getjTable1().setModel(barangDao.searchByAllToTable(word));
     }
@@ -63,7 +70,7 @@ public class Controller {
             view.getjTable2().setAutoCreateColumnsFromModel(true);
             String trans ="";
             if(x==1){
-                list.add("Tambah Data");
+                list.add("Barang Masuk");
             }
             else if(x==2){
                list.add("Tambah Data");
@@ -402,5 +409,33 @@ public class Controller {
               }  
             }
         }.start();
+    }
+    public void hapusbaru(){
+         barang = new Barang();
+        String status = view.getjLabel50().getText();
+        String id = view.getjLabel51().getText();
+        String banyak = view.getjLabel52().getText();
+        if(status.equals("Barang Masuk")){
+            barang.setId(id);
+            barang.setStok(Integer.parseInt(banyak));
+        try {
+            barangDao.kurangstok(barang);
+            view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
+            JOptionPane.showMessageDialog(view, "Data Terhapus");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+        else if(status.equals("Tambah Data")){
+            barang.setId(id);
+        try {
+            barangDao.delete(barang);
+            JOptionPane.showMessageDialog(view, "Berhasil Terhapus");
+            view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
+        } catch (SQLException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
     }
 }

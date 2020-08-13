@@ -45,8 +45,26 @@ public class KeluarDao {
         tableModel.addColumn("Stok"); tableModel.addColumn("User");
         try {
             ResultSet rs = con.createStatement().executeQuery("select penjualan.tgl_jual,penjualan.id_barang, barang.nama_barang,barang.tipe_barang,penjualan.stok_terjual,user.nama_user "
-                    + "                                         from penjualan,barang,user where penjualan.id_barang = barang.id_barang"
-                    + "                                         and user.id_user = penjualan.id_user");
+                    + " from penjualan,barang,user where penjualan.id_barang = barang.id_barang"
+                    + " and user.id_user = penjualan.id_user and date(tgl_jual) = date(now())");
+            while (rs.next()) {
+                Object[] isi = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), 
+                    rs.getString(5), rs.getString(6)};
+                tableModel.addRow(isi);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return tableModel;
+    }
+      public DefaultTableModel tablepenjualankemarin() {
+        DefaultTableModel tableModel = new DefaultTableModel(); tableModel.setRowCount(0); tableModel.setColumnCount(0);
+        tableModel.addColumn("Tanggal/Time");tableModel.addColumn("ID"); tableModel.addColumn("Nama Barang"); tableModel.addColumn("Tipe"); 
+        tableModel.addColumn("Stok"); tableModel.addColumn("User");
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select penjualan.tgl_jual,penjualan.id_barang, barang.nama_barang,barang.tipe_barang,penjualan.stok_terjual,user.nama_user "
+                    + " from penjualan,barang,user where penjualan.id_barang = barang.id_barang"
+                    + " and user.id_user = penjualan.id_user and date(tgl_jual) = date(now()) - interval 1 day");
             while (rs.next()) {
                 Object[] isi = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), 
                     rs.getString(5), rs.getString(6)};
