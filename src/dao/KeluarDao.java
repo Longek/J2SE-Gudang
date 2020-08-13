@@ -25,11 +25,11 @@ public class KeluarDao {
     }
     
     public void insert(Keluar keluar ) throws SQLException{
-        String sql = "Insert into penjualan values(?,now(),?,?)";
+        String sql = "insert into penjualan values(?,now(),?,?)";
         PreparedStatement ps = con.prepareStatement(sql);
         ps.setString(1, keluar.getId_brg());
         ps.setInt(2, keluar.getStok());
-        ps.setString(3, keluar.getId_user());
+        ps.setString(3, keluar.getId_user());   
         ps.executeUpdate();
     }
     public void delete(Keluar keluar) throws SQLException{
@@ -44,7 +44,9 @@ public class KeluarDao {
         tableModel.addColumn("Tanggal/Time");tableModel.addColumn("ID"); tableModel.addColumn("Nama Barang"); tableModel.addColumn("Tipe"); 
         tableModel.addColumn("Stok"); tableModel.addColumn("User");
         try {
-            ResultSet rs = con.createStatement().executeQuery("select tgl_jual,id_barang,nama_barang,tipe_barang,stok_terjual,nama_user from penjualan join barang using(id_barang) join user using(id_user) where tgl_jual=date(now());");
+            ResultSet rs = con.createStatement().executeQuery("select penjualan.tgl_jual,penjualan.id_barang, barang.nama_barang,barang.tipe_barang,penjualan.stok_terjual,user.nama_user "
+                    + "                                         from penjualan,barang,user where penjualan.id_barang = barang.id_barang"
+                    + "                                         and user.id_user = penjualan.id_user");
             while (rs.next()) {
                 Object[] isi = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), 
                     rs.getString(5), rs.getString(6)};

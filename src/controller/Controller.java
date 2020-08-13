@@ -358,10 +358,11 @@ public class Controller {
     
     public void insertkeluar(){
         keluar = new Keluar();
-        keluar.setId_brg(view.getjTextField2().getText());
+        keluar.setId_brg(view.getKd_keluar().getText());
         keluar.setStok(Integer.parseInt(view.getjTextField19().getText()));
         keluar.setId_user("hanif");
         try {
+            keluarDao = new KeluarDao();
             keluarDao.insert(keluar);
             JOptionPane.showMessageDialog(view, "Entry Oke");
         } catch (SQLException ex) {
