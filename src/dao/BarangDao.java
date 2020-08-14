@@ -213,6 +213,6 @@ public class BarangDao {
          ps.setInt(2, barang.getStok());
          ps.executeUpdate();
      }
-
+     
      
 }
