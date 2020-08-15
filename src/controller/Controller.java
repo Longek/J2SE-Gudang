@@ -8,6 +8,7 @@ package controller;
 import dao.BarangDao;
 import dao.KeluarDao;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -46,6 +47,7 @@ public class Controller {
         con = k.getConnection();
         view.getjTable1().setModel(barangDao.selectAllDataToTableModel());
         view.getTblKeluar().setModel(keluarDao.tablepenjualan());
+        view.getTablebulan().setModel(tablepenjualanbulanan());
     }
     public Controller(UpdateTable view2){
         this.view2 = view2;
@@ -342,6 +344,7 @@ public class Controller {
     public void delete(){
         barang = new Barang();
         barang.setId(view.getjLabel43().getText());
+        barang.setStok(Integer.parseInt(view.getjLabel53().getText()));
         try {
             barangDao.delete(barang);
             JOptionPane.showMessageDialog(view, "Berhasil Terhapus");
@@ -438,4 +441,39 @@ public class Controller {
         }
         }
     }
+           public DefaultTableModel tablepenjualanbulanan() {
+        DefaultTableModel tableModel = new DefaultTableModel(); tableModel.setRowCount(0); tableModel.setColumnCount(0);
+        tableModel.addColumn("ID"); tableModel.addColumn("Nama Barang"); tableModel.addColumn("Tipe"); 
+        tableModel.addColumn("Stok");
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select id_barang,nama_barang,tipe_barang,sum(stok_terjual) as stok from penjualan join barang using(id_barang) group by id_barang");
+            while (rs.next()) {
+                Object[] isi = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)};
+                tableModel.addRow(isi);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return tableModel;
+           }        
+        public void tablecaribulan(){
+            view.getTablebulan().setModel(tablepenjualanbulanancari());
+        }
+
+            public DefaultTableModel tablepenjualanbulanancari() {
+                int bln = Integer.parseInt(""+view.getjDateChooser1().getDate().getMonth())+1;
+        DefaultTableModel tableModel = new DefaultTableModel(); tableModel.setRowCount(0); tableModel.setColumnCount(0);
+        tableModel.addColumn("ID"); tableModel.addColumn("Nama Barang"); tableModel.addColumn("Tipe"); 
+        tableModel.addColumn("Stok");
+        try {
+            ResultSet rs = con.createStatement().executeQuery("select id_barang,nama_barang,tipe_barang,sum(stok_terjual) as stok from penjualan join barang using(id_barang) where month(tgl_jual)="+bln+" group by id_barang");
+            while (rs.next()) {
+                Object[] isi = {rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)};
+                tableModel.addRow(isi);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return tableModel;
+}
 }

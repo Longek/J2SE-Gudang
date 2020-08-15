@@ -1,5 +1,6 @@
 package view;
 
+import com.toedter.calendar.JDateChooser;
 import controller.Controller;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -324,6 +325,32 @@ public class FormBarang extends javax.swing.JFrame {
         this.kd_keluar = kd_keluar;
     }
 
+    public JTable getTablebulan() {
+        return tablebulan;
+    }
+
+    public void setTablebulan(JTable tablebulan) {
+        this.tablebulan = tablebulan;
+    }
+
+    public JLabel getjLabel53() {
+        return jLabel53;
+    }
+
+    public void setjLabel53(JLabel jLabel53) {
+        this.jLabel53 = jLabel53;
+    }
+
+    public JDateChooser getjDateChooser1() {
+        return jDateChooser1;
+    }
+
+    public void setjDateChooser1(JDateChooser jDateChooser1) {
+        this.jDateChooser1 = jDateChooser1;
+    }
+
+   
+
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -447,7 +474,7 @@ public class FormBarang extends javax.swing.JFrame {
         btnSideTrans14 = new keeptoo.KButton();
         btnSideTrans12 = new keeptoo.KButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tablebulan = new javax.swing.JTable();
         jLabel49 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel53 = new javax.swing.JLabel();
@@ -1826,7 +1853,7 @@ public class FormBarang extends javax.swing.JFrame {
         }
     });
 
-    jTable3.setModel(new javax.swing.table.DefaultTableModel(
+    tablebulan.setModel(new javax.swing.table.DefaultTableModel(
         new Object [][] {
             {null, null, null, null},
             {null, null, null, null},
@@ -1837,7 +1864,9 @@ public class FormBarang extends javax.swing.JFrame {
             "Title 1", "Title 2", "Title 3", "Title 4"
         }
     ));
-    jScrollPane4.setViewportView(jTable3);
+    tablebulan.setIntercellSpacing(new java.awt.Dimension(2, 2));
+    tablebulan.setRowHeight(25);
+    jScrollPane4.setViewportView(tablebulan);
 
     jLabel49.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
     jLabel49.setForeground(new java.awt.Color(255, 255, 255));
@@ -2040,10 +2069,10 @@ public class FormBarang extends javax.swing.JFrame {
         }
     });
     tanggal.addInputMethodListener(new java.awt.event.InputMethodListener() {
+        public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+        }
         public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             tanggalInputMethodTextChanged(evt);
-        }
-        public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
         }
     });
 
@@ -2273,10 +2302,10 @@ public class FormBarang extends javax.swing.JFrame {
             jLabel33.setText(""+controller.isibuka(Integer.parseInt(jTextField22.getText())));
             
             jButton11.setEnabled(true);
-
+                 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(FormBarang.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(FormBarang.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jTextField22KeyReleased
 
@@ -2423,6 +2452,7 @@ public class FormBarang extends javax.swing.JFrame {
         if(jTable1.getSelectedRow()>0){
         int baris = jTable1.getSelectedRow(); 
          jLabel43.setText(jTable1.getValueAt(baris, 0).toString());
+         jLabel53.setText(jTable1.getValueAt(baris, 6).toString());
                     String[] options = {"Ya", "Tidak"}; 
             int result = JOptionPane.showOptionDialog(
                null,
@@ -2495,9 +2525,10 @@ public class FormBarang extends javax.swing.JFrame {
     private void laporan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_laporan1ActionPerformed
          con = (new Koneksi().getConnection());
         try {
-            String qq = "SELECT date(tgl_jual)as tgl ,sum(stok_terjual) as banyak FROM penjualan group by tgl";
+            int bln = Integer.parseInt(""+jDateChooser1.getDate().getMonth())+1;
+            String qq = "SELECT date(tgl_jual)as tgl ,sum(stok_terjual) as banyak FROM penjualan where month(tgl_jual)="+bln+" group by tgl";
             JDBCCategoryDataset dataset = new JDBCCategoryDataset(con, qq);
-            JFreeChart chart = ChartFactory.createLineChart("Grafik Laporan", "tgl","stok", dataset, PlotOrientation.VERTICAL,false,true,true);
+            JFreeChart chart = ChartFactory.createLineChart("Grafik Laporan Bulan "+bln, "tgl","stok", dataset, PlotOrientation.VERTICAL,false,true,true);
             BarRenderer renderer = null;
             CategoryPlot plot = null;
             renderer = new BarRenderer();
@@ -2520,7 +2551,7 @@ public class FormBarang extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSideTrans12ActionPerformed
 
     private void btnSideTrans13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSideTrans13ActionPerformed
-        
+        controller.tablecaribulan();
     }//GEN-LAST:event_btnSideTrans13ActionPerformed
 
     /**
@@ -2674,7 +2705,6 @@ public class FormBarang extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -2702,6 +2732,7 @@ public class FormBarang extends javax.swing.JFrame {
     private keeptoo.KButton laporan1;
     private javax.swing.JPanel panekKiri;
     private javax.swing.JPanel panelKanan;
+    private javax.swing.JTable tablebulan;
     private com.toedter.calendar.JDateChooser tanggal;
     private javax.swing.JTable tblKeluar;
     // End of variables declaration//GEN-END:variables

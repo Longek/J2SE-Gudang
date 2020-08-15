@@ -214,5 +214,8 @@ public class BarangDao {
          ps.executeUpdate();
      }
      
-     
+     public int kembalistok(){
+         String sqlid ="select id_barang from barang where id_pecah =?";
+         return 0;
+     }
 }

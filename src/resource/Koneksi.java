@@ -8,11 +8,10 @@ import javax.swing.JOptionPane;
  * @author bayug
  */
 public class Koneksi {
-    ConfigApp conf = new ConfigApp();
     
-    private final String url = "jdbc:mysql://"+conf.getDbHost()+"/"+conf.getDbName();
-    private final String uname = conf.getDbUname();
-    private final String pswd = conf.getDbPass();
+    private final String url = "jdbc:mysql://localhost/db_gudang";
+    private final String uname = "root";
+    private final String pswd = "";
     public Connection getConnection(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
